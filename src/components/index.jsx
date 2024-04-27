@@ -10,18 +10,19 @@ const Accordian = () => {
 
   return (
     <>
-      <div>
+      <div className="main-div">
         {data && data.length > 0 ? (
           data.map((dataItem) => {
             return (
               <div  key={dataItem.id}>
                 <div
+                className="accordian"
                   onClick={() => handleOnClick(dataItem.id)}
                 >
-                  {dataItem.question}
+                  {dataItem.question} <span className={dataItem.id === accordian ? "rotation" : "icon"}>+</span>
                 </div>
                 {
-                    accordian === dataItem.id ? <>{dataItem.answer}</> : null
+                    accordian === dataItem.id ? <div className="answer">{dataItem.answer}</div> : null
                 }
                 
               </div>
